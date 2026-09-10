@@ -17,12 +17,14 @@ export const SOCIAL_LINKS = {
 
 export const HOME_META = {
   
+
   title: 'Rosey Lanscaping | Landscaping & Outdoor Construction',
   description:
     'Luxury landscaping, outdoor living spaces, and custom construction for residential and commercial properties.',
 }
 
 export const defaultMeta = {
+
   title: 'Rosey Lanscaping',
   description:
     'Professional landscape design and outdoor construction services for elegant, functional, and lasting spaces.',
