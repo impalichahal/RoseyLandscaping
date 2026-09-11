@@ -7,8 +7,6 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Services from './pages/Services'
 import ServiceDetail from './pages/ServiceDetail'
-import Projects from './pages/Projects'
-import ProjectDetail from './pages/ProjectDetail'
 import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
 import Contact from './pages/Contact'
@@ -37,8 +35,6 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/:serviceSlug" element={<ServiceDetail />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/:projectId" element={<ProjectDetail />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/contact" element={<Contact />} />

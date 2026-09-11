@@ -7,6 +7,7 @@ import { defaultMeta } from '../config/siteConfig'
 export default function ServiceDetail() {
   const { serviceSlug } = useParams()
   const service = serviceDetails[serviceSlug]
+  const serviceImages = service?.images ?? [service?.image]
   const gallery = services
     .filter((item) => item.slug !== serviceSlug)
     .slice(0, 2)
@@ -93,11 +94,17 @@ export default function ServiceDetail() {
           </div>
 
           <div className="mt-16 grid gap-6 md:grid-cols-2">
-            <img src={service.image} alt={`${service.title} example`} className="h-[360px] w-full rounded-[26px] object-cover" />
-            {gallery.map((item) => (
-              <img key={item.id} src={item.image} alt={`${service.title} detail inspiration`} className="h-[360px] w-full rounded-[26px] object-cover md:hidden" />
+            {serviceImages.map((image, index) => (
+              <img
+                key={image}
+                src={image}
+                alt={`${service.title} ${index === 0 ? 'main example' : `example ${index + 1}`}`}
+                className="h-[360px] w-full rounded-[26px] object-cover"
+              />
             ))}
-            <img src={gallery[0].image} alt={`${service.title} material inspiration`} className="hidden h-[360px] w-full rounded-[26px] object-cover md:block" />
+            {serviceImages.length === 1 && gallery.map((item) => (
+              <img key={item.id} src={item.image} alt={`${service.title} detail inspiration`} className="h-[360px] w-full rounded-[26px] object-cover" />
+            ))}
           </div>
         </div>
       </section>

@@ -37,6 +37,15 @@ p { margin: 0; }
 .image-card img, .project-card img, .service-card img, .blog-card img { transition: transform 500ms ease; }
 .image-card:hover img, .project-card:hover img, .service-card:hover img, .blog-card:hover img { transform: scale(1.06); }
 
+.service-carousel-track {
+  width: calc(var(--service-image-count) * 100%);
+}
+
+.service-carousel-slide {
+  flex: 0 0 calc(100% / var(--service-image-count));
+  width: calc(100% / var(--service-image-count));
+}
+
 button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
   outline: 3px solid rgba(46, 125, 50, 0.45);
   outline-offset: 3px;

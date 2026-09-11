@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { COMPANY_NAME } from '../config/siteConfig'
 import { services } from '../data/services'
+import logo from '../images/logo.png'
 
 const navItems = [
   { to: '/', label: 'Home' },
   { to: '/about', label: 'About' },
   { to: '/services', label: 'Services' },
-  { to: '/projects', label: 'Projects' },
   { to: '/blog', label: 'Blog' },
   { to: '/contact', label: 'Contact' },
 ]
@@ -33,9 +33,7 @@ export default function Header() {
     <header className={`sticky top-0 z-40 transition-all duration-300 ${scrolled ? 'bg-[#f5f5f3]/90 shadow-[0_12px_35px_rgba(0,0,0,0.08)] backdrop-blur-xl' : 'bg-transparent'}`}>
       <div className="container flex items-center justify-between py-4">
         <Link to="/" className="flex items-center gap-3" aria-label="Go to homepage">
-          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#2e7d32] text-lg font-bold text-white">
-            RL
-          </div>
+          <img src={logo} alt="Rosey Landscaping logo" className="h-16 w-16 object-contain" />
           <div>
             <div className="text-sm font-semibold uppercase tracking-[0.2em] text-[#2e7d32]">Rosey</div>
             <div className="text-lg font-semibold text-[#222222]">{COMPANY_NAME}</div>

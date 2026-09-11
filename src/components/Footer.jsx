@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ADDRESS, BUSINESS_HOURS, COMPANY_NAME, EMAIL, SOCIAL_LINKS, BUSINESS_PHONE } from '../config/siteConfig'
 import { services } from '../data/services'
+import logo from '../images/logo.png'
 
 export default function Footer() {
   return (
@@ -9,7 +10,7 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-5">
           <div className="xl:col-span-2">
             <div className="flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#2e7d32] text-lg font-bold text-white">V</div>
+              <img src={logo} alt="Rosey Landscaping logo" className="h-20 w-20 object-contain" />
               <div>
                 <div className="text-xs uppercase tracking-[0.18em] text-[#baddbf]">Rosey</div>
                 <h3 className="text-xl font-semibold text-white">{COMPANY_NAME}</h3>
@@ -32,7 +33,6 @@ export default function Footer() {
             <ul className="mt-5 space-y-3 text-[#d7d7d7]">
               <li><Link to="/about">About</Link></li>
               <li><Link to="/services">Services</Link></li>
-              <li><Link to="/projects">Projects</Link></li>
               <li><Link to="/blog">Blog</Link></li>
               <li><Link to="/contact">Contact</Link></li>
             </ul>

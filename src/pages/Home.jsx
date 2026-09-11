@@ -1,13 +1,11 @@
 import { Link } from 'react-router-dom'
 import SectionHeading from '../components/SectionHeading'
 import ServiceCard from '../components/ServiceCard'
-import ProjectCard from '../components/ProjectCard'
 import BlogCard from '../components/BlogCard'
 import TestimonialSlider from '../components/TestimonialSlider'
 import AwardCard from '../components/AwardCard'
 import CTASection from '../components/CTASection'
 import { services } from '../data/services'
-import { projects } from '../data/projects'
 import { blogPosts } from '../data/blogPosts'
 import { awards } from '../data/awards'
 import { HOME_META } from '../config/siteConfig'
@@ -112,22 +110,6 @@ export default function Home() {
           <div className="grid gap-7 md:grid-cols-2 xl:grid-cols-3">
             {services.map((service) => (
               <ServiceCard key={service.id} service={service} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section bg-[#f5f5f3]">
-        <div className="container">
-          <div className="mb-8 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-            <SectionHeading eyebrow="Featured work" title="Our recent project transformations." />
-            <Link to="/projects" className="inline-flex items-center gap-2 text-sm font-semibold text-[#2e7d32]">
-              View All Projects <span aria-hidden="true">→</span>
-            </Link>
-          </div>
-          <div className="grid gap-7 md:grid-cols-2 xl:grid-cols-3">
-            {projects.slice(0, 6).map((project) => (
-              <ProjectCard key={project.id} project={project} />
             ))}
           </div>
         </div>

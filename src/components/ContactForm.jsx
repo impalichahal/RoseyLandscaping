@@ -101,7 +101,6 @@ export default function ContactForm() {
             <option value="Swimming Pool Design">Swimming Pool Design</option>
             <option value="Outdoor Kitchen">Outdoor Kitchen</option>
             <option value="Decks & Pergolas">Decks & Pergolas</option>
-            <option value="Commercial Landscaping">Commercial Landscaping</option>
             <option value="Stonework">Stonework</option>
           </select>
           {errors.service && <p className="mt-2 text-sm text-[#b42318]">{errors.service}</p>}

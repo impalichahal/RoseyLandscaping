@@ -41,11 +41,11 @@ export default function About() {
             </p>
             <div className="mt-8 grid gap-5 sm:grid-cols-2">
               <div className="rounded-[22px] border border-[#ebebeb] bg-[#f8f8f7] p-5">
-                <p className="text-3xl font-semibold text-[#222222]">15+</p>
+                <p className="text-3xl font-semibold text-[#222222]">8+</p>
                 <p className="mt-2 text-[#555]">Years of experience</p>
               </div>
               <div className="rounded-[22px] border border-[#ebebeb] bg-[#f8f8f7] p-5">
-                <p className="text-3xl font-semibold text-[#222222]">500+</p>
+                <p className="text-3xl font-semibold text-[#222222]">415+</p>
                 <p className="mt-2 text-[#555]">Projects completed</p>
               </div>
             </div>
