@@ -14,8 +14,8 @@ import { HOME_META } from '../config/siteConfig'
 import { useEffect } from 'react'
 
 const trustItems = [
-  '15+ Years Experience',
-  '500+ Projects',
+  '8+ Years Experience',
+  '415+ Projects',
   'Licensed Professionals',
   'Quality Workmanship',
 ]

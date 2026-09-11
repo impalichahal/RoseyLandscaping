@@ -34,7 +34,7 @@ export default function Header() {
       <div className="container flex items-center justify-between py-4">
         <Link to="/" className="flex items-center gap-3" aria-label="Go to homepage">
           <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#2e7d32] text-lg font-bold text-white">
-            V
+            RL
           </div>
           <div>
             <div className="text-sm font-semibold uppercase tracking-[0.2em] text-[#2e7d32]">Rosey</div>
@@ -86,8 +86,8 @@ export default function Header() {
         </nav>
 
         <div className="hidden items-center gap-4 lg:flex">
-          <a href="tel:+15552147846" className="text-sm font-medium text-[#222222] transition hover:text-[#2e7d32]">
-            +1 (555) 214-7846
+          <a href="tel:+1(236)883-1316" className="text-sm font-medium text-[#222222] transition hover:text-[#2e7d32]">
+            +1(236)883-1316
           </a>
           <Link to="/contact" className="rounded-full bg-[#2e7d32] px-5 py-3 text-sm font-semibold text-white shadow-[0_14px_28px_rgba(46,125,50,0.28)] transition hover:-translate-y-0.5 hover:bg-[#256b2a]">
             Get a Free Quote

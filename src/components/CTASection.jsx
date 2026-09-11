@@ -21,7 +21,7 @@ export default function CTASection() {
           <Link to="/contact" className="rounded-full bg-[#2e7d32] px-7 py-4 text-sm font-semibold text-white transition hover:bg-[#256b2a]">
             Get a Free Quote
           </Link>
-          <a href="tel:+15552147846" className="rounded-full border border-white/30 bg-white/10 px-7 py-4 text-sm font-semibold text-white transition hover:bg-white/15">
+          <a href="tel:+1(236)883-1316" className="rounded-full border border-white/30 bg-white/10 px-7 py-4 text-sm font-semibold text-white transition hover:bg-white/15">
             Call Us
           </a>
         </div>
