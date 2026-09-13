@@ -9,7 +9,10 @@ import { services } from '../data/services'
 import { blogPosts } from '../data/blogPosts'
 import { awards } from '../data/awards'
 import { HOME_META } from '../config/siteConfig'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
+import video1 from '../videos/video1.mp4'
+import video2 from '../videos/video2.mp4'
+import video3 from '../videos/video3.mp4'
 
 const trustItems = [
   '8+ Years Experience',
@@ -17,6 +20,8 @@ const trustItems = [
   'Licensed Professionals',
   'Quality Workmanship',
 ]
+
+const heroVideos = [video1, video2, video3]
 
 export default function Home() {
   useEffect(() => {
@@ -29,13 +34,9 @@ export default function Home() {
 
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-[#1a1a1a]">
+      <section className="hero-scene relative isolate overflow-hidden bg-[#1a1a1a]">
         <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1800&q=80"
-            alt="Luxury landscape design"
-            className="h-full w-full object-cover opacity-70"
-          />
+          <HeroVideoPlaylist />
           <div className="absolute inset-0 bg-gradient-to-r from-[#121212]/90 via-[#121212]/45 to-[#121212]/40" />
         </div>
         <div className="container relative z-10 grid min-h-[720px] items-center py-24 lg:grid-cols-2 lg:py-10">
@@ -43,7 +44,7 @@ export default function Home() {
             <p className="mb-5 inline-block rounded-full border border-white/20 bg-white/10 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.22em] text-[#eef7ef]">
               LANDSCAPE DESIGN & CONSTRUCTION
             </p>
-            <h1 className="text-5xl font-semibold leading-none tracking-[-0.06em] md:text-6xl xl:text-7xl">
+            <h1 className="text-5xl font-semibold leading-none tracking-[-0.06em] !text-[#e2edcf] md:text-6xl xl:text-7xl">
               Transform Your Outdoor Space
             </h1>
             <p className="mt-6 max-w-lg text-lg text-[#ebebeb] md:text-xl">
@@ -155,5 +156,37 @@ export default function Home() {
 
       <CTASection />
     </>
+  )
+}
+
+function HeroVideoPlaylist() {
+  const videoRef = useRef(null)
+
+  useEffect(() => {
+    const video = videoRef.current
+    let videoIndex = 0
+
+    const playNextVideo = () => {
+      videoIndex = (videoIndex + 1) % heroVideos.length
+      video.src = heroVideos[videoIndex]
+      video.load()
+      video.play().catch(() => {})
+    }
+
+    video.addEventListener('ended', playNextVideo)
+    return () => video.removeEventListener('ended', playNextVideo)
+  }, [])
+
+  return (
+    <video
+      ref={videoRef}
+      src={heroVideos[0]}
+      autoPlay
+      muted
+      playsInline
+      preload="auto"
+      aria-label="Landscaping garden video"
+      className="h-full w-full object-cover opacity-70"
+    />
   )
 }

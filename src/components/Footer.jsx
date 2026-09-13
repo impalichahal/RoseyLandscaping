@@ -12,11 +12,11 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <img src={logo} alt="Rosey Landscaping logo" className="h-20 w-20 object-contain" />
               <div>
-                <div className="text-xs uppercase tracking-[0.18em] text-[#baddbf]">Rosey</div>
-                <h3 className="text-xl font-semibold text-white">{COMPANY_NAME}</h3>
+                <div className="text-xs uppercase tracking-[0.18em] text-[#a8c686]">Rosey</div>
+                <h3 className="text-xl font-semibold !text-[#d4e7b5]">{COMPANY_NAME}</h3>
               </div>
             </div>
-            <p className="mt-5 max-w-md text-[#d7d7d7]">
+            <p className="mt-5 max-w-md text-[#f0f0f0]">
               Thoughtful landscaping and outdoor construction designed to elevate everyday living and create lasting value.
             </p>
             <div className="mt-6 flex gap-3">
@@ -29,8 +29,8 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#dfe9e1]">Quick links</h4>
-            <ul className="mt-5 space-y-3 text-[#d7d7d7]">
+            <h4 className="text-sm font-semibold uppercase tracking-[0.16em] !text-[#a8c686]">Quick links</h4>
+            <ul className="mt-5 space-y-3 text-[#f0f0f0]">
               <li><Link to="/about">About</Link></li>
               <li><Link to="/services">Services</Link></li>
               <li><Link to="/blog">Blog</Link></li>
@@ -39,8 +39,8 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#dfe9e1]">Services</h4>
-            <ul className="mt-5 space-y-3 text-[#d7d7d7]">
+            <h4 className="text-sm font-semibold uppercase tracking-[0.16em] !text-[#a8c686]">Services</h4>
+            <ul className="mt-5 space-y-3 text-[#f0f0f0]">
               {services.slice(0, 6).map((service) => (
                 <li key={service.id}><Link to={`/services/${service.slug}`}>{service.title}</Link></li>
               ))}
@@ -48,8 +48,8 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#dfe9e1]">Contact</h4>
-            <ul className="mt-5 space-y-3 text-[#d7d7d7]">
+            <h4 className="text-sm font-semibold uppercase tracking-[0.16em] !text-[#a8c686]">Contact</h4>
+            <ul className="mt-5 space-y-3 text-[#f0f0f0]">
               <li><a href={`tel:${BUSINESS_PHONE}`}>{BUSINESS_PHONE}</a></li>
               <li><a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
               <li>{ADDRESS}</li>
@@ -58,7 +58,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-[#d7d7d7] md:flex-row md:items-center md:justify-between">
+        <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-[#f0f0f0] md:flex-row md:items-center md:justify-between">
           <p>© 2026 {COMPANY_NAME}. All rights reserved.</p>
           <div className="flex gap-5">
             <Link to="/privacy">Privacy Policy</Link>
