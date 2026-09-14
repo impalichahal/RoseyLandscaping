@@ -1,4 +1,4 @@
-export const COMPANY_NAME = 'Rosey Lanscaping'
+export const COMPANY_NAME = 'Rosey Landscaping'
 export const TAGLINE = 'Premium outdoor spaces, thoughtfully designed.'
 export const BUSINESS_PHONE = '+1 (236) 883-1316'
 export const EMAIL = 'roseylandscaping@gmail.com'
@@ -18,14 +18,14 @@ export const SOCIAL_LINKS = {
 export const HOME_META = {
   
 
-  title: 'Rosey Lanscaping | Landscaping & Outdoor Construction',
+  title: 'Rosey Landscaping | Landscaping & Outdoor Construction',
   description:
     'Luxury landscaping, outdoor living spaces, and custom construction for residential and commercial properties.',
 }
 
 export const defaultMeta = {
 
-  title: 'Rosey Lanscaping',
+  title: 'Rosey Landscaping',
   description:
     'Professional landscape design and outdoor construction services for elegant, functional, and lasting spaces.',
 }

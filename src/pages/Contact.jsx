@@ -33,7 +33,7 @@ export default function Contact() {
 
             <div className="overflow-hidden rounded-[28px] border border-[#e7e7e7] bg-white shadow-[0_18px_45px_rgba(0,0,0,0.06)]">
               <iframe
-                title="Map to Rosey Lanscaping"
+                title="Map to Rosey Landscaping"
                 src={GOOGLE_MAP_URL}
                 className="h-[360px] w-full border-0"
                 loading="lazy"

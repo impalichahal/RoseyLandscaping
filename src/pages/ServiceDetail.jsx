@@ -14,7 +14,7 @@ export default function ServiceDetail() {
 
   useEffect(() => {
     if (!service) {
-      document.title = 'Service Not Found | Rosey Lanscaping'
+      document.title = 'Service Not Found | Rosey Landscaping'
       return
     }
     document.title = `${service.title} | ${defaultMeta.title}`

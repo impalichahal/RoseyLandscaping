@@ -11,8 +11,6 @@ import { awards } from '../data/awards'
 import { HOME_META } from '../config/siteConfig'
 import { useEffect, useRef } from 'react'
 import video1 from '../videos/video1.mp4'
-import video2 from '../videos/video2.mp4'
-import video3 from '../videos/video3.mp4'
 
 const trustItems = [
   '8+ Years Experience',
@@ -20,8 +18,6 @@ const trustItems = [
   'Licensed Professionals',
   'Quality Workmanship',
 ]
-
-const heroVideos = [video1, video2, video3]
 
 export default function Home() {
   useEffect(() => {
@@ -36,7 +32,7 @@ export default function Home() {
     <>
       <section className="hero-scene relative isolate overflow-hidden bg-[#1a1a1a]">
         <div className="absolute inset-0">
-          <HeroVideoPlaylist />
+          <HeroVideo />
           <div className="absolute inset-0 bg-gradient-to-r from-[#121212]/90 via-[#121212]/45 to-[#121212]/40" />
         </div>
         <div className="container relative z-10 grid min-h-[720px] items-center py-24 lg:grid-cols-2 lg:py-10">
@@ -84,7 +80,7 @@ export default function Home() {
               <SectionHeading
                 eyebrow="About us"
                 title="Designing outdoor spaces that feel as good as they look."
-                text="At Rosey Lanscaping, we combine thoughtful planning, premium materials, and precise craftsmanship to create landscapes that feel natural, elevated, and built to last."
+                text="At Rosey Landscaping, we combine thoughtful planning, premium materials, and precise craftsmanship to create landscapes that feel natural, elevated, and built to last."
               />
               <p className="mt-2 text-lg text-[#575757]">
                 Whether you are creating a tranquil garden retreat, a high-end entertainment zone, or a complete exterior transformation, we align every detail to your property, lifestyle, and long-term goals.
@@ -159,30 +155,29 @@ export default function Home() {
   )
 }
 
-function HeroVideoPlaylist() {
+function HeroVideo() {
   const videoRef = useRef(null)
 
   useEffect(() => {
     const video = videoRef.current
-    let videoIndex = 0
-
-    const playNextVideo = () => {
-      videoIndex = (videoIndex + 1) % heroVideos.length
-      video.src = heroVideos[videoIndex]
-      video.load()
-      video.play().catch(() => {})
+    const loopFirstTwentySeconds = () => {
+      if (video.currentTime >= 20) {
+        video.currentTime = 0
+        video.play().catch(() => {})
+      }
     }
 
-    video.addEventListener('ended', playNextVideo)
-    return () => video.removeEventListener('ended', playNextVideo)
+    video.addEventListener('timeupdate', loopFirstTwentySeconds)
+    return () => video.removeEventListener('timeupdate', loopFirstTwentySeconds)
   }, [])
 
   return (
     <video
       ref={videoRef}
-      src={heroVideos[0]}
+      src={video1}
       autoPlay
       muted
+      loop
       playsInline
       preload="auto"
       aria-label="Landscaping garden video"

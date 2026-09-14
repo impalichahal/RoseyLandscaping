@@ -9,7 +9,7 @@ export default function BlogPost() {
 
   useEffect(() => {
     if (!post) {
-      document.title = 'Article Not Found | Rosey Lanscaping'
+      document.title = 'Article Not Found | Rosey Landscaping'
       return
     }
     document.title = `${post.title} | ${defaultMeta.title}`
