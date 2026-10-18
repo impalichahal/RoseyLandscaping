@@ -172,16 +172,18 @@ function HeroVideo() {
   }, [])
 
   return (
-    <video
-      ref={videoRef}
-      src={video1}
-      autoPlay
-      muted
-      loop
-      playsInline
-      preload="auto"
-      aria-label="Landscaping garden video"
-      className="h-full w-full object-cover opacity-70"
-    />
+
+<video
+  ref={videoRef}
+  src={video1}
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="metadata"
+  poster="/hero-poster.webp"
+  aria-label="Landscaping garden video"
+  className="h-full w-full object-cover opacity-70"
+/>
   )
 }
