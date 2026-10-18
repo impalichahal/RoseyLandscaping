@@ -23,11 +23,10 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  useEffect(() => {
-    if (!mobileOpen) {
-      setServicesOpen(false)
-    }
-  }, [mobileOpen])
+  const closeMobileMenu = () => {
+    setMobileOpen(false)
+    setServicesOpen(false)
+  }
 
   return (
     <header className={`sticky top-0 z-40 transition-all duration-300 ${scrolled ? 'bg-[#f5f5f3]/90 shadow-[0_12px_35px_rgba(0,0,0,0.08)] backdrop-blur-xl' : 'bg-transparent'}`}>
@@ -95,7 +94,10 @@ export default function Header() {
         <button
           type="button"
           className="flex h-11 w-11 items-center justify-center rounded-full border border-[#dfe7df] bg-white/80 text-[#222] lg:hidden"
-          onClick={() => setMobileOpen((open) => !open)}
+          onClick={() => {
+            setMobileOpen((open) => !open)
+            setServicesOpen(false)
+          }}
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={mobileOpen}
         >
@@ -125,7 +127,7 @@ export default function Header() {
                           key={service.id}
                           to={`/services/${service.slug}`}
                           className="block rounded-xl px-2 py-2 text-sm text-[#4d4d4d]"
-                          onClick={() => setMobileOpen(false)}
+                          onClick={closeMobileMenu}
                         >
                           {service.title}
                         </Link>
@@ -140,7 +142,7 @@ export default function Header() {
                   className={({ isActive }) =>
                     `rounded-2xl px-4 py-3 font-medium ${isActive ? 'bg-[#edf3ee] text-[#2e7d32]' : 'text-[#222222]'}`
                   }
-                  onClick={() => setMobileOpen(false)}
+                  onClick={closeMobileMenu}
                 >
                   {item.label}
                 </NavLink>
@@ -149,7 +151,7 @@ export default function Header() {
             <Link
               to="/contact"
               className="mt-3 rounded-full bg-[#2e7d32] px-5 py-3 text-center font-semibold text-white"
-              onClick={() => setMobileOpen(false)}
+              onClick={closeMobileMenu}
             >
               Get a Free Quote
             </Link>

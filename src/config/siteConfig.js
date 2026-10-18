@@ -5,8 +5,8 @@ export const EMAIL = 'roseylandscaping@gmail.com'
 export const ADDRESS = '13027 98 Ave, Surrey BC, V3T 1B6 Canada'
 export const WHATSAPP_NUMBER = '12368831316'
 export const BUSINESS_HOURS = 'Mon - Sat: 8:00 AM - 6:00 PM'
-export const GOOGLE_MAP_URL = 'https://maps.app.goo.gl/vjhsQWTyd7S7Mivb9'
-export const FORM_ENDPOINT = 'https://formspree.io/f/your-form-id'
+export const GOOGLE_MAP_URL = 'https://www.google.com/maps?q=49.1810316,-122.8615511&z=15&output=embed'
+export const FORM_ENDPOINT = ''
 
 export const SOCIAL_LINKS = {
   facebook: 'https://www.facebook.com',
