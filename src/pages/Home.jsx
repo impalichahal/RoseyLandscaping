@@ -180,8 +180,8 @@ function HeroVideo() {
   muted
   loop
   playsInline
-  preload="metadata"
-  poster="/hero-poster.webp"
+  preload="none"
+  poster="/hero-poster.jpg"
   aria-label="Landscaping garden video"
   className="h-full w-full object-cover opacity-70"
 />
