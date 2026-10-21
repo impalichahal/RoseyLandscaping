@@ -1,23 +1,15 @@
-
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const path = require("path");
-const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
 
 require("dotenv").config({
   path: path.join(__dirname, ".env"),
 });
 
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
-
 const app = express();
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Middleware
 app.use(cors());
@@ -73,7 +65,7 @@ app.get("/", (req, res) => {
   res.send("Rosey Landscaping backend is running!");
 });
 
-// Free Quote / Contact form endpoint
+// Contact form endpoint
 app.post("/api/contact", async (req, res) => {
   try {
     const {
@@ -107,7 +99,7 @@ app.post("/api/contact", async (req, res) => {
       });
     }
 
-    // Save the enquiry to MongoDB
+    // Save the enquiry to MongoDB first
     const contact = await Contact.create({
       name: name.trim(),
       phone: phone.trim(),
@@ -117,12 +109,28 @@ app.post("/api/contact", async (req, res) => {
       message: message.trim(),
     });
 
-    // Send email notification after MongoDB saves the enquiry
-    console.log("DEBUG: Reached email notification section.");
+    console.log("Quote saved to MongoDB:", contact._id);
+
+    // Send email notification using Resend
     try {
-      await transporter.sendMail({
-        from: process.env.EMAIL_USER,
-        to: process.env.NOTIFY_EMAIL,
+      if (!process.env.RESEND_API_KEY) {
+        throw new Error(
+          "RESEND_API_KEY is missing from Render Environment."
+        );
+      }
+
+      if (!process.env.NOTIFY_EMAIL) {
+        throw new Error(
+          "NOTIFY_EMAIL is missing from Render Environment."
+        );
+      }
+
+      console.log("Starting Resend email notification...");
+
+      const { data, error } = await resend.emails.send({
+        from: "Rosey Landscaping <quotes@roseylandscaping.com>",
+        to: [process.env.NOTIFY_EMAIL],
+        replyTo: contact.email,
         subject: `New Quote Request - ${contact.service}`,
         text: `
 New quote request received on the Rosey Landscaping website.
@@ -140,12 +148,22 @@ Quote ID: ${contact._id}
         `,
       });
 
-      console.log("Quote notification email sent successfully.");
+      if (error) {
+        console.error("Resend API rejected the email:", error);
+      } else {
+        console.log(
+          "Resend accepted the email request. Email ID:",
+          data?.id
+        );
+      }
     } catch (emailError) {
-      console.error("Quote notification email failed:", emailError.message);
+      console.error(
+        "Email notification failed:",
+        emailError.message || emailError
+      );
     }
 
-
+    // Keep the saved enquiry even if email notification fails
     return res.status(201).json({
       success: true,
       message: "Your enquiry has been submitted successfully!",
