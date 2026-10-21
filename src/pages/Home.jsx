@@ -11,6 +11,7 @@ import { awards } from '../data/awards'
 import { HOME_META } from '../config/siteConfig'
 import { useEffect, useRef } from 'react'
 import video1 from '../videos/video1.mp4'
+import outdoorSpace from '../images/outdoor-space1-optimized.jpg'
 
 const trustItems = [
   '8+ Years Experience',
@@ -73,7 +74,7 @@ export default function Home() {
         <div className="container">
           <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_1fr]">
             <div className="relative">
-              <img src="https://images.unsplash.com/photo-1504297050568-910d24c426d3?auto=format&fit=crop&w=1200&q=80" alt="Outdoor living design" className="h-[600px] w-full rounded-[30px] object-cover shadow-[0_26px_60px_rgba(0,0,0,0.12)]" />
+              <img src={outdoorSpace} alt="Outdoor living design" className="h-[600px] w-full rounded-[30px] object-cover shadow-[0_26px_60px_rgba(0,0,0,0.12)]" />
               <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80" alt="Landscape detail" className="absolute -bottom-8 right-6 h-44 w-44 rounded-[24px] border-8 border-white object-cover shadow-[0_16px_30px_rgba(0,0,0,0.14)] md:h-52 md:w-52" />
             </div>
             <div>
