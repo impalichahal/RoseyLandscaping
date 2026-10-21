@@ -109,19 +109,19 @@ app.post("/api/contact", async (req, res) => {
       message: message.trim(),
     });
 
-    console.log("Quote saved to MongoDB:", contact._id);
+    console.log("Quote saved to MongoDB:", contact._id.toString());
 
     // Send email notification using Resend
     try {
       if (!process.env.RESEND_API_KEY) {
         throw new Error(
-          "RESEND_API_KEY is missing from Render Environment."
+          "RESEND_API_KEY is missing from environment variables."
         );
       }
 
       if (!process.env.NOTIFY_EMAIL) {
         throw new Error(
-          "NOTIFY_EMAIL is missing from Render Environment."
+          "NOTIFY_EMAIL is missing from environment variables."
         );
       }
 
@@ -132,20 +132,15 @@ app.post("/api/contact", async (req, res) => {
         to: [process.env.NOTIFY_EMAIL],
         replyTo: contact.email,
         subject: `New Quote Request - ${contact.service}`,
-        text: `
-New quote request received on the Rosey Landscaping website.
-
-Name: ${contact.name}
-Phone: ${contact.phone}
-Email: ${contact.email}
-Service: ${contact.service}
-Preferred Contact Method: ${contact.contactMethod}
-
-Message:
-${contact.message}
-
-Quote ID: ${contact._id}
-        `,
+        text:
+          "New quote request received on the Rosey Landscaping website.\n\n" +
+          "Name: " + contact.name + "\n" +
+          "Phone: " + contact.phone + "\n" +
+          "Email: " + contact.email + "\n" +
+          "Service: " + contact.service + "\n" +
+          "Preferred Contact Method: " + contact.contactMethod + "\n\n" +
+          "Message:\n" + contact.message + "\n\n" +
+          "Quote ID: " + contact._id,
       });
 
       if (error) {
